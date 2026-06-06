@@ -50,7 +50,7 @@ export function DashboardPage() {
   return (
     <div className="min-h-screen bg-slate-50">
       {/* Header */}
-      <div className="relative overflow-hidden px-8 pt-8 pb-12"
+      <div className="relative overflow-hidden px-4 md:px-8 pt-6 md:pt-8 pb-10 md:pb-12"
         style={{ background: 'linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%)' }}>
         <div className="absolute inset-0 opacity-10"
           style={{
@@ -69,9 +69,9 @@ export function DashboardPage() {
         </div>
       </div>
 
-      <div className="px-8 -mt-6 pb-8 space-y-6">
+      <div className="px-4 md:px-8 -mt-6 pb-8 space-y-4 md:space-y-6">
         {/* Stats */}
-        <div className="grid grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
           {[
             {
               label: 'Total Tasks', value: stats.total, icon: TrendingUp,
@@ -136,9 +136,9 @@ export function DashboardPage() {
           </div>
         )}
 
-        <div className="grid grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
           {/* Recent tasks */}
-          <div className="col-span-2 bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
+          <div className="col-span-1 md:col-span-2 bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
             <div className="flex items-center justify-between px-6 py-4 border-b border-slate-50">
               <div>
                 <h2 className="font-semibold text-slate-900">Recent Tasks</h2>

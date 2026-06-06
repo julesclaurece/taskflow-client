@@ -368,7 +368,7 @@ export function TasksPage() {
   const totalPages = Math.ceil(count / 10)
 
   return (
-    <div className="min-h-screen bg-slate-50 p-8">
+    <div className="min-h-screen bg-slate-50 p-4 md:p-8">
       {/* Header */}
       <div className="flex items-start justify-between mb-6">
         <div>
@@ -404,7 +404,7 @@ export function TasksPage() {
       </div>
 
       {/* Filter bar */}
-      <div className="flex flex-wrap items-center gap-3 bg-white border border-slate-100 rounded-2xl px-4 py-3 shadow-sm mb-5">
+      <div className="flex flex-wrap items-center gap-2 md:gap-3 bg-white border border-slate-100 rounded-2xl px-3 md:px-4 py-3 shadow-sm mb-4 md:mb-5">
         <div className="flex items-center gap-2 text-slate-400">
           <SlidersHorizontal size={14} />
           <span className="text-xs font-medium text-slate-500">Filters</span>
@@ -446,6 +446,8 @@ export function TasksPage() {
             <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-indigo-600" />
           </div>
         ) : (
+          <div className="overflow-x-auto pb-2 -mx-4 px-4 md:mx-0 md:px-0">
+          <div className="min-w-[680px]">
           <KanbanView
             tasks={allTasks}
             onEdit={task => setModal({ open: true, task })}
@@ -453,6 +455,8 @@ export function TasksPage() {
             onStatusChange={toggleStatus}
             onAddInColumn={status => setModal({ open: true, defaultStatus: status })}
           />
+          </div>
+          </div>
         )
       ) : (
         <div className="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">

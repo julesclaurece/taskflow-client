@@ -199,7 +199,7 @@ export function ProjectsPage() {
 
   return (
     <div className="min-h-screen bg-slate-50">
-      <div className="px-8 pt-8 pb-8 space-y-6">
+      <div className="px-4 md:px-8 pt-6 md:pt-8 pb-8 space-y-4 md:space-y-6">
         <div className="flex items-start justify-between">
           <div>
             <h1 className="text-2xl font-bold text-slate-900">Projects</h1>
@@ -215,7 +215,7 @@ export function ProjectsPage() {
         {/* Global stats bar */}
         {projects.length > 0 && (
           <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-5">
-            <div className="flex items-center gap-6">
+            <div className="flex flex-wrap items-center gap-4 md:gap-6">
               {[
                 { label: 'Projects', value: projects.length, icon: FolderKanban, color: 'text-indigo-600', bg: 'bg-indigo-50' },
                 { label: 'Total Tasks', value: totalTasks, icon: TrendingUp, color: 'text-blue-600', bg: 'bg-blue-50' },
@@ -231,7 +231,7 @@ export function ProjectsPage() {
                   </div>
                 </div>
               ))}
-              <div className="flex-1 ml-4">
+              <div className="flex-1 min-w-40 ml-0 md:ml-4 w-full">
                 <div className="flex items-center justify-between mb-1.5">
                   <span className="text-xs text-slate-500 font-medium">Overall completion</span>
                   <span className="text-xs font-bold text-indigo-600">{globalPercent}%</span>
@@ -270,7 +270,7 @@ export function ProjectsPage() {
             </button>
           </div>
         ) : (
-          <div className="grid grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-5">
             {projects.map((project, i) => (
               <ProjectCard
                 key={project.id}
