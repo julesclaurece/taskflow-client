@@ -1,1 +1,89 @@
 @import "tailwindcss";
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.7; }
+  33% { transform: translateY(-30px) rotate(120deg); opacity: 1; }
+  66% { transform: translateY(-15px) rotate(240deg); opacity: 0.8; }
+}
+
+@keyframes float-delay {
+  0%, 100% { transform: translateY(0px) rotate(45deg); opacity: 0.5; }
+  50% { transform: translateY(-40px) rotate(225deg); opacity: 0.9; }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px) scale(1); opacity: 0.4; }
+  50% { transform: translateY(-20px) scale(1.1); opacity: 0.7; }
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.8); opacity: 1; }
+  100% { transform: scale(2); opacity: 0; }
+}
+
+@keyframes slide-up {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.auth-bg {
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e, #1a1a2e, #16213e, #0f3460);
+  background-size: 400% 400%;
+  animation: gradient-shift 12s ease infinite;
+}
+
+.float-1 { animation: float 8s ease-in-out infinite; }
+.float-2 { animation: float-delay 10s ease-in-out infinite; }
+.float-3 { animation: float-slow 12s ease-in-out infinite; }
+.float-4 { animation: float 6s ease-in-out infinite reverse; }
+.float-5 { animation: float-delay 14s ease-in-out infinite reverse; }
+
+.slide-up { animation: slide-up 0.6s ease forwards; }
+
+.glass {
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+}
+
+.shimmer-text {
+  background: linear-gradient(90deg, #6366f1, #8b5cf6, #06b6d4, #6366f1);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
+}
+
+.stat-card {
+  background: linear-gradient(135deg, var(--tw-gradient-from), var(--tw-gradient-to));
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 80%;
+  height: 200%;
+  background: rgba(255,255,255,0.08);
+  border-radius: 50%;
+}

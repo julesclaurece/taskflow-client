@@ -1,73 +1,81 @@
-# React + TypeScript + Vite
+# TaskFlow — Task Management App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> TaskFlow helps anyone managing multiple projects stay on top of their work — no more scattered notes or missed deadlines, just a clear visual board showing exactly what needs to happen next.
 
-Currently, two official plugins are available:
+**Live Demo:** `https://taskflow-client.vercel.app`  
+**API:** `https://taskflow-api.up.railway.app`
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## The Problem
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Freelancers, entrepreneurs, students, team leads — everyone juggles tasks across multiple projects. They end up with to-do lists on sticky notes, phone notes, spreadsheets, and emails. Things fall through the cracks, deadlines are missed, and nobody knows what's actually in progress.
 
-## Expanding the ESLint configuration
+TaskFlow fixes that by putting everything in one place: every task has a priority, a deadline, a status, and belongs to a project. The Kanban board gives you an instant picture of what's blocked, what's moving, and what's done — no meeting required.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Features
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- **Kanban board** — drag between To Do / In Progress / Done columns
+- **List view** — filterable, paginated task list
+- **Projects** — group tasks, track progress per project with visual completion bars
+- **Filters** — by status, priority, project, keyword, due date
+- **JWT Auth** — register, login, token refresh
+- **Demo account** — try the app instantly without registering
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Tech Stack
+
+| Layer | Tech |
+|---|---|
+| Frontend | React 19 + TypeScript + Vite |
+| Styling | Tailwind CSS v4 |
+| State | Zustand |
+| Forms | React Hook Form |
+| HTTP | Axios (with JWT interceptor + auto-refresh) |
+| Backend | Django 6 + Django REST Framework |
+| Auth | JWT via `djangorestframework-simplejwt` |
+| Database | PostgreSQL (Neon) |
+| Deployment | Vercel (frontend) · Railway (API) |
+
+---
+
+## Quick Start
+
+```bash
+git clone https://github.com/yourusername/taskflow-client
+cd taskflow-client
+
+npm install
+
+cp .env.example .env
+# Set VITE_API_URL=http://localhost:8001
+
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Open `http://localhost:5173` — click **"Try the demo"** on the login page to explore with pre-loaded data.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Environment Variables
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+| Variable | Description |
+|---|---|
+| `VITE_API_URL` | Backend API URL |
+
+---
+
+## Demo Account
+
+| Username | Password |
+|---|---|
+| `demo` | `demo1234` |
+
+Pre-loaded with 3 projects and 20 realistic tasks across all statuses and priorities.
+
+---
+
+## Backend
+
+The API is a separate repo: [taskflow-api](https://github.com/yourusername/taskflow-api)
+
+Built with Django REST Framework — full CRUD, JWT auth, pagination, filters, and Swagger docs at `/api/docs/`.
