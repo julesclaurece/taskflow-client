@@ -2,8 +2,9 @@
 
 > TaskFlow helps anyone managing multiple projects stay on top of their work — no more scattered notes or missed deadlines, just a clear visual board showing exactly what needs to happen next.
 
-**Live Demo:** `https://taskflow-client.vercel.app`  
-**API:** `https://taskflow-api.up.railway.app`
+**Live Demo:** `https://taskflow-client-cyan.vercel.app`  
+**API:** `https://taskflow-api-production-0a90.up.railway.app`  
+**Swagger Docs:** `https://taskflow-api-production-0a90.up.railway.app/api/docs/`
 
 ---
 
@@ -17,12 +18,13 @@ TaskFlow fixes that by putting everything in one place: every task has a priorit
 
 ## Features
 
-- **Kanban board** — drag between To Do / In Progress / Done columns
+- **Kanban board** — To Do / In Progress / Done columns
 - **List view** — filterable, paginated task list
 - **Projects** — group tasks, track progress per project with visual completion bars
 - **Filters** — by status, priority, project, keyword, due date
 - **JWT Auth** — register, login, token refresh
 - **Demo account** — try the app instantly without registering
+- **Fully responsive** — works on mobile with bottom navigation
 
 ## Tech Stack
 
@@ -43,7 +45,7 @@ TaskFlow fixes that by putting everything in one place: every task has a priorit
 ## Quick Start
 
 ```bash
-git clone https://github.com/yourusername/taskflow-client
+git clone https://github.com/julesclaurece/taskflow-client
 cd taskflow-client
 
 npm install
@@ -76,6 +78,6 @@ Pre-loaded with 3 projects and 20 realistic tasks across all statuses and priori
 
 ## Backend
 
-The API is a separate repo: [taskflow-api](https://github.com/yourusername/taskflow-api)
+The API is a separate repo: [TaskFlow-API](https://github.com/julesclaurece/TaskFlow-API)
 
 Built with Django REST Framework — full CRUD, JWT auth, pagination, filters, and Swagger docs at `/api/docs/`.
